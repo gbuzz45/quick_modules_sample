@@ -1,0 +1,16 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><style>.swiper { width: 100%; height: 300px; }
+.swiper-slide { text-align: center; font-size: 18px; display: flex; justify-content: center; align-items: center; }
+</style></head><body><div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+<script>const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
+</script></body></html>

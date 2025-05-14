@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>模組預覽工具</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    h1 { margin-bottom: 1rem; }
+    #search { padding: 0.5rem; width: 100%; max-width: 400px; font-size: 16px; margin-bottom: 1rem; }
+    .module { margin-bottom: 2rem; }
+    h2 { margin-top: 1rem; }
+    iframe { width: 100%; height: 300px; border: 1px solid #ccc; margin-top: 1rem; }
+    code { background: #f0f0f0; padding: 0.2rem 0.5rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>🔧 公司元件模組預覽</h1>
+  <input type="text" id="search" placeholder="🔍 搜尋模組名稱或簡語...">
+  <div id="modules"></div>
+
+  <script>
+    const modules = [
+      { name: "頁籤RWD轉下拉選單", alias: "頁籤", file: "頁籤RWD轉下拉選單" },
+      { name: "swiper輪播", alias: "swiper", file: "swiper輪播" }
+    ];
+
+    const container = document.getElementById("modules");
+
+    function renderModules(keyword = "") {
+      container.innerHTML = "";
+      modules.forEach(mod => {
+        if (mod.name.includes(keyword) || mod.alias.includes(keyword)) {
+          const block = document.createElement("div");
+          block.className = "module";
+          block.innerHTML = `
+            <h2>${mod.name}</h2>
+            <iframe src="../templates/${mod.file}/preview.html"></iframe>
+            <p><code>node index.js add ${mod.alias}</code></p>
+          `;
+          container.appendChild(block);
+        }
+      });
+    }
+
+    document.getElementById("search").addEventListener("input", e => {
+      renderModules(e.target.value.trim());
+    });
+
+    renderModules();
+  </script>
+</body>
+</html>

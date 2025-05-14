@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><style>.tab-list { display: flex; }
+@media (max-width: 768px) {
+  .tab-list { display: none; }
+  .tab-select { display: block; }
+}
+</style></head><body><div class="rwd-tab">
+  <select class="tab-select">
+    <option>Tab 1</option>
+    <option>Tab 2</option>
+  </select>
+  <ul class="tab-list">
+    <li>Tab 1</li>
+    <li>Tab 2</li>
+  </ul>
+  <div class="tab-content">內容區</div>
+</div>
+<script>document.querySelector(".tab-select").addEventListener("change", function (e) {
+  const index = e.target.selectedIndex;
+  // 顯示對應 tabContent
+});
+</script></body></html>

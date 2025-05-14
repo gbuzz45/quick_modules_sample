@@ -1,0 +1,5 @@
+.tab-list { display: flex; }
+@media (max-width: 768px) {
+  .tab-list { display: none; }
+  .tab-select { display: block; }
+}
